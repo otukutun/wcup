@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Weather</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="world_cup">World Cup Information</string>
+    <string name="action_settings">Settings</string>
+    <string name="todays_match_button">Today\'s match</string>
+    <string name="todays_match_result">Today\'s match</string>
+    <string name="tomorrow_match">Tomorrow\'s match</string>
+    <string name="title_activity_todays_match">TodaysMatchActivity</string>
+
+</resources>
