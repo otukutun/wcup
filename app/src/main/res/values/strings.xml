@@ -9,5 +9,7 @@
     <string name="todays_match_result">Today\'s match</string>
     <string name="tomorrow_match">Tomorrow\'s match</string>
     <string name="title_activity_todays_match">TodaysMatchActivity</string>
+    <string name="title_activity_tomrrows_match">TomrrowsMatchActivity</string>
+    <string name="title_activity_list_teams">ListTeams</string>
 
 </resources>

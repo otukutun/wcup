@@ -1,35 +1,22 @@
 package de.vogella.android.weather.app;
 
-import android.content.Intent;
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ListView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class ListTeamsActivity extends ActionBarActivity {
+    static String api = "http://worldcup.sfg.io/matches/today";
+    Context Activity;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    public void onClickTodaysMatch(View view) {
-        Intent intent = new Intent(this, TodaysMatchActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickTomorrowsMatch(View view) {
-        Intent intent = new Intent(this, TomrrowsMatchActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickListCountries(View view) {
-        Intent intent = new Intent(this, TomrrowsMatchActivity.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_list_teams);
     }
 
 
@@ -37,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.list_treams, menu);
         return true;
     }
 
@@ -52,6 +39,5 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }

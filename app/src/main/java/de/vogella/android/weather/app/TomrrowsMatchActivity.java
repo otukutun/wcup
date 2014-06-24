@@ -11,20 +11,18 @@ import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import java.util.ArrayList;
 
 
-public class TodaysMatchActivity extends ActionBarActivity {
-    static String api = "http://worldcup.sfg.io/matches/today";
-    Context todayMatchActivity;
+public class TomrrowsMatchActivity extends ActionBarActivity {
+    static String api = "http://worldcup.sfg.io/matches/tomorrow";
+    Context tomrrowsMatchActivity;
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todays_match);
-
+        setContentView(R.layout.activity_tomrrows_match);
         AsyncGet asyncGet = new AsyncGet(new AsyncCallback() {
             @Override
             public void onPreExecute() {
@@ -39,35 +37,22 @@ public class TodaysMatchActivity extends ActionBarActivity {
             @Override
             public void onPostExecute(String result) {
                 try {
-                    todayMatchActivity = TodaysMatchActivity.this;
+                    tomrrowsMatchActivity = TomrrowsMatchActivity.this;
                     ArrayList<String> list = new ArrayList<String>();
                     JSONArray jsonArray = new JSONArray(result);
                     for (int i = 0; i< jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         String status = jsonObject.getString("status");
-                        String message = "";
 
                         JSONObject home_team = jsonObject.getJSONObject("home_team");
                         String home_country = home_team.getString("country");
                         JSONObject away_team = jsonObject.getJSONObject("away_team");
                         String away_country = away_team.getString("country");
-                        if (status.equals("future")) {
-                            message = home_country + " vs " + away_country;
-                        } else if (status.equals("in progress")) {
-                            String home_goals = home_team.getString("goals");
-                            String away_goals = away_team.getString("goals");
-                            message = home_country + " : " + home_goals + " vs " + away_country + ": " + away_goals;
-                        } else {
-                            String home_goals = home_team.getString("goals");
-                            String away_goals = away_team.getString("goals");
-                            String winner = jsonObject.getString("winner");
-                            message = "WInner: " + winner + home_country + " : " + home_goals + " vs " + away_country + ": " + away_goals;
-                        }
-
+                        String message = home_country + " vs " + away_country;
                         list.add(message);
                     }
                     listView = (ListView) findViewById(R.id.listView);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(todayMatchActivity,android.R.layout.simple_list_item_1,list);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(tomrrowsMatchActivity,android.R.layout.simple_list_item_1,list);
                     listView.setAdapter(adapter);
                 } catch (Exception e) {
 
@@ -86,7 +71,7 @@ public class TodaysMatchActivity extends ActionBarActivity {
             }
         });
         asyncGet.execute(api);
-
+        Log.d("test", "test");
     }
 
 
@@ -94,7 +79,7 @@ public class TodaysMatchActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.todays_match, menu);
+        getMenuInflater().inflate(R.menu.tomrrows_match, menu);
         return true;
     }
 
