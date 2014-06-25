@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClickListCountries(View view) {
-        Intent intent = new Intent(this, TomrrowsMatchActivity.class);
+        Intent intent = new Intent(this, ListTeamsActivity.class);
         startActivity(intent);
     }
 

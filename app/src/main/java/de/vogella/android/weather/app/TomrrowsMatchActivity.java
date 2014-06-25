@@ -31,7 +31,6 @@ public class TomrrowsMatchActivity extends ActionBarActivity {
                 } catch (Exception e) {
 
                 }
-
             }
 
             @Override
